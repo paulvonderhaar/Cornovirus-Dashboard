@@ -17,18 +17,6 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
-db = SQLAlchemy(app)
-
-# reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(db.engine, reflect=True)
-
-#country = db.Table("countries",db.metadata,autoload=True,autoload_with=db.engine)
-
-country = Base.classes.MyCountry
-
 @app.route("/")
 def index():
     """Return the homepage."""
